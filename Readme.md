@@ -47,7 +47,7 @@ La récupéation des articles avec leur score pour une catégorie donnée est de
 d'articles dans la catégorie.
 
 Cette opération s'effectue en deux étapes, la première récupération des éléments de la catégorie, puis la récupération
-du score pour chaque élément. Cette implémentation pourra être optimisée lors de l'implémentation de la méthode `zmscore`.
+du score pour chaque élément. Cette implémentation pourra être optimisée lors de l'implémentation de la méthode `zmscore` [See antirez/redis#2344](https://github.com/antirez/redis/issues/2344).
 
 
  
