@@ -13,7 +13,7 @@ Celle-ci permet d'accèder très rapidement à l'article
 
 2. Sorted Set
 
-Les sorted set excellent avec le fonctionne de score, ou de date.
+Les sorted set excellent avec les fonctions de score, ou de date.
 Celles-ci permetttent de récupérer des N derniers éléments par exemple.
 
 3. Set
