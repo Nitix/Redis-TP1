@@ -1,6 +1,12 @@
+package controller;
+
+import controller.Article;
+import controller.Category;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import redis.clients.jedis.Jedis;
+
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -45,5 +51,18 @@ public class CategoryTest {
         Category.remFromCategory(jedis, articleId, category);
         assertEquals(0, Category.getMembersOfCategory(jedis, category).size());
         assertEquals(0, Category.getCategories(jedis, articleId).size());
+    }
+
+    @Test
+    public void getArticleWithScore() {
+        Jedis jedis = new Jedis(host, port);
+        jedis.select(db);
+        String category = "Java";
+        Category.addToCategory(jedis, articleId, category);
+        Set<Tuple<String, Double>> articles = Category.getArticlesOfCategoryWithScore(jedis, category);
+        assertEquals(1, articles.size());
+        Tuple<String, Double> article = articles.iterator().next();
+        assertEquals(articleId, article.first);
+        assertEquals(Vote.getScore(jedis, articleId), article.second, 1);
     }
 }

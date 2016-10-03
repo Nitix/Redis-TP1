@@ -1,3 +1,6 @@
+package controller;
+
+import controller.Vote;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import redis.clients.jedis.Jedis;
